@@ -1,9 +1,10 @@
 import { rps, rpsls } from "./lib/rpsls.js"
 import minimist from "minimist"
-import express from "express"
+import express, { json } from "express"
 
+var argv = minimist(process.argv.slice(2));
 var app = express()
-const argv = minimist(process.argv.slice(2))
+
 app.use(express.urlencoded({ extended: true }));
 app.use(json());
 const port = argv.port || 5000
